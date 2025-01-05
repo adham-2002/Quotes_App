@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <title>Random Quote Machine</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="quote-box">
+            <div class="quote-text">
+                <i class="fa fa-quote-left"></i><span id="text"><%= quote.text %></span>
+            </div>
+            <div class="quote-author">- <span id="author"><%= quote.author %></span></div>
+            <div class="buttons">
+                <button class="button" id="copy-quote" title="Copy to clipboard">
+                    <i class="fa fa-copy"></i>
+                </button>
+                <button class="button" id="new-quote">New quote</button>
+            </div>
+        </div>
+        <div class="footer">by <a href="https://www.linkedin.com/in/adhamelganzoury/">AAIE</a></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>

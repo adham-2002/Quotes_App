@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <title>Add Quote</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #wrapper {
+            width: 90%;
+            max-width: 1200px; /* Increased maximum width */
+            margin: 0 auto;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 60px; /* Increased padding for more space */
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Increased shadow for better visibility */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Increased font size for the heading */
+            margin-bottom: 30px; /* Increased bottom margin */
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 30px; /* Increased bottom margin for better spacing */
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 12px; /* Increased margin below label */
+        }
+
+        textarea, input[type="text"] {
+            width: 100%;
+            padding: 16px; /* Increased padding for better spacing */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 300px; /* Increased height of the textarea */
+        }
+
+        .submit-button {
+            display: block;
+            width: 100%;
+            padding: 16px; /* Increased padding for the button */
+            font-size: 1.2em; /* Increased font size for the button */
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px; /* Increased top margin */
+            font-size: 1em; /* Increased font size */
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="form-container">
+            <h1>Add a New Quote</h1>
+            <form action="/add" method="POST">
+                <div class="form-group">
+                    <label for="text">Quote:</label>
+                    <textarea id="text" name="text" placeholder="Type your quote here..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author:</label>
+                    <input id="author" name="author" type="text" placeholder="Author" required />
+                </div>
+                <button type="submit" class="submit-button">Add Quote</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

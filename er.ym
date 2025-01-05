@@ -1,0 +1,32 @@
+services:
+  web:
+    build:
+      context: ./server
+    container_name: express-app
+    ports:
+      - "8080:3000"  # Map host port 8080 to container port 3000
+    depends_on:
+      - mongo-db
+    networks:
+      - default  # Attach to the custom default network
+
+  mongo-db:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: myappdb
+    volumes:
+      - mongo_data:/data/db
+      - ./db/init.js:/docker-entrypoint-initdb.d/init.js
+    networks:
+      - default  # Attach to the custom default network
+
+volumes:
+  mongo_data:  # Named volume for persistent MongoDB data
+
+networks:
+  default:
+    driver: bridge  # Define the custom network explicitly
+

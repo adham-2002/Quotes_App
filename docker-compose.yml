@@ -1,0 +1,26 @@
+services:
+  web:
+    build:
+      context: ./server
+    container_name: express-app #! name of the container i will create from docker file in ./server
+    ports:
+      - "8080:3000"  #! Map host port 8080 to container port 3000(express_app_one) that mean 
+    depends_on:
+      - db
+    mem_limit: 512m 
+    cpus: "1.0"
+    restart: unless-stopped
+
+
+  db:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: myappdb
+    volumes:
+      - db_data:/var/lib/postgresql/data #! have default name take the name of docker compose project + name of volume
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+volumes:
+  db_data:

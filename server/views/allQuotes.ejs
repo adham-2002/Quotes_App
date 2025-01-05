@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Quotes</title>
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      width: 90%;
+      max-width: 800px;
+    }
+
+    li {
+      background-color: #fff;
+      margin-bottom: 15px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    p {
+      margin: 10px 0;
+      font-size: 1.1em;
+    }
+
+    strong {
+      color: #007BFF;
+    }
+
+    form {
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 1em;
+      color: #fff;
+      background-color: #e74c3c;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c0392b;
+    }
+
+    a {
+      margin-top: 20px;
+      text-decoration: none;
+      color: #007BFF;
+      font-size: 1em;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Quotes</h1>
+  <ul>
+    <% quotes.forEach(quote => { %>
+      <li>
+        <p><strong>Author:</strong> <%= quote.author %></p>
+        <p><strong>Quote:</strong> <%= quote.text %></p>
+        <form action="/delete-quote/<%= quote._id %>" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+  <a href="/">Back to Home</a>
+</body>
+</html>
