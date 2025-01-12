@@ -4,7 +4,7 @@ services:
       context: ./server
     container_name: express-app #! name of the container i will create from docker file in ./server
     ports:
-      - "8080:3000"  #! Map host port 8080 to container port 3000(express_app_one) that mean 
+      - "3000:3000"  #! Map host port 8080 to container port 3000(express_app_one) that mean 
     depends_on:
       - db
     mem_limit: 512m 
